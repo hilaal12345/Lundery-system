@@ -1,6 +1,8 @@
 const express=require("express")
 const cors=require("cors")
 const mongoose  = require("mongoose")
+const  customerrouter = require("./routes/customer")
+
 require("dotenv").config()
 
 
@@ -12,6 +14,8 @@ const PORT=process.env.port || 3000
 mongoose.connect(process.env.db_Url).then(()=>console.log("sucsess concection"))
 
 // app.use("/allImages",express.static("docment"))
+
+app.use(customerrouter)
 
 
 
