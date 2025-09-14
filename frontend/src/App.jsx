@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./pages/home"
 import Service from "./pages/services"
 import About from "./pages/about"
+import Contact from "./pages/coontact"
 
 
 function App(){
@@ -18,22 +19,7 @@ function App(){
       <Route path="/"element={<Home/>}/>
       <Route path="/about"element={<About/>}/>
       <Route path="/service"element={ <Service/>}/>
-      
-       
-
-
-
-       {/* xafso  inta routekada kusameeso */}
-
-
-
-
-
-        {/*hibo  inta routekada kusameeso */}
-        
-         
-
-      
+      <Route path="/contact"element={ <Contact/>}/>
     </Routes>
     
 

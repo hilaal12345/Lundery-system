@@ -11,7 +11,7 @@ function Header(){
            <Link to={"/"}><li>Home</li></Link>
             <Link to={"/about"}> <li>About</li></Link>
             <Link to={"/service"}><li>Service</li></Link>
-            <li>Contact</li>
+            <Link to={"/contact"}><li>Contact</li></Link>
         </ul>
         <div>
             <button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">

@@ -1,5 +1,4 @@
-import Footer from "../components/footer";
-import Header from "../components/header";
+import { Link } from "react-router-dom"
 
 function About() {
   return  <>
@@ -45,9 +44,9 @@ function About() {
             </div>
         </section>
 
-        <div className="text-center font-semibold space-y-6">
-            <p className="pt-5">if you want more informotion than contact us </p>
-            <button className="bg-emerald-700 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Contact Us</button>
+        <div className="text-center font-semibold space-y-10 ">
+            <p className="pt-5 text-2xl font-semibold">if you want more informotion than contact us </p>
+            <Link to={"/contact"}><button className="bg-emerald-700 mt-5 text-2xl font-semibold text-white px-6 py-3 rounded-lg hover:bg-blue-700">Contact Us</button></Link>
         </div>
 
     </div>
