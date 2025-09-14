@@ -1,7 +1,13 @@
+import Footer from "./components/footer"
+import Header from "./components/header"
+
 function App(){
   return <>
-  <h1 className="text-7xl text-red-500"> Hello guys</h1>
-  <p>banaat </p>
+    <Header/>
+    
+    
+
+    <Footer/>
   
   </>
 } 
