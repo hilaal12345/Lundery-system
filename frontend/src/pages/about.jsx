@@ -3,10 +3,8 @@ import Header from "../components/header";
 
 function About() {
   return  <>
-
-    <Header/>
     
-    <div className="bg-blue-50 min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
         <section className="px-6 md:px-20 py-16 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
@@ -53,7 +51,7 @@ function About() {
         </div>
 
     </div>
-     <Footer/>
+
 
     </> 
   

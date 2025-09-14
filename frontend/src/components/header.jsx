@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Home from "../pages/home"
 
 function Header(){
@@ -7,9 +8,9 @@ function Header(){
     <div className="flex justify-between px-16 py-4 ">
         <h1 className="text-emerald-600 text-2xl font-bold">HSH LAUNDRY </h1>   
         <ul className="flex text-emerald-600 gap-8 text-2xl font-semibold ">
-            <li>Home</li>
-            <li>About</li>
-            <li>Service</li>
+           <Link to={"/"}><li>Home</li></Link>
+            <Link to={"/about"}> <li>About</li></Link>
+            <Link to={"/service"}><li>Service</li></Link>
             <li>Contact</li>
         </ul>
         <div>
@@ -23,7 +24,7 @@ function Header(){
         
     </div>
 
-  <Home/>
+
 
     </>
 }
