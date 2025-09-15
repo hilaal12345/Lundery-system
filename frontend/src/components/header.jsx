@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom"
-import Home from "../pages/home"
+import { Link, NavLink, useNavigate } from "react-router-dom"
+
 
 function Header(){
+    const navigate = useNavigate()
+    const getCustomer=localStorage.getItem("customer")
+
+    const handleLogOut=()=>{
+        localStorage.clear()
+        navigate("/login")
+    }
     return <>
 
     
@@ -13,13 +20,30 @@ function Header(){
             <Link to={"/service"}><li>Service</li></Link>
             <Link to={"/contact"}><li>Contact</li></Link>
         </ul>
-        <div>
-            <button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
-                <i className="bg-emerald-700">login</i>
+        {
+            getCustomer ? <div className="flex gap-5">
+            <button onClick={handleLogOut} className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+                <i className="bg-emerald-700">logOut</i>
             </button>
 
-            <button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2 ml-5">Sign In</button>
+            <NavLink to={"/OrderForm"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+                <i className="bg-emerald-700">Add Order</i>
+            </button> </NavLink>
+            </div>
+            :
+            <div>
+            <NavLink to={"login"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+                <i className="bg-emerald-700">login</i>
+            </button></NavLink>
+
+            <NavLink to={"/Registration"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2 ml-5">Sign In</button></NavLink>
         </div>
+
+        }
+
+        
+        
+        
 
         
     </div>
