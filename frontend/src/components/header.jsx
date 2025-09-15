@@ -21,9 +21,15 @@ function Header(){
             <Link to={"/contact"}><li>Contact</li></Link>
         </ul>
         {
-            getCustomer ? <button onClick={handleLogOut} className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+            getCustomer ? <div className="flex gap-5">
+            <button onClick={handleLogOut} className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
                 <i className="bg-emerald-700">logOut</i>
             </button>
+
+            <NavLink to={"/OrderForm"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+                <i className="bg-emerald-700">Add Order</i>
+            </button> </NavLink>
+            </div>
             :
             <div>
             <NavLink to={"login"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
