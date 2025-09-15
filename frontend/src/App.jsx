@@ -2,9 +2,9 @@ import Footer from "./components/footer"
 import Header from "./components/header"
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/home"
-import Service from "./pages/services"
 import About from "./pages/about"
 import Contact from "./pages/coontact"
+import Service from "./pages/services"
 
 
 function App(){

@@ -2,17 +2,18 @@
 function Home(){
     return <>
         {/* <Header/> */}
-        <div>
+        <div className="w-screen mt-3  bg-current">
         <section className="flex flex-col md:flex-row items-center justify-center gap-20 px-10 py-16">
             <div className="max-w-xl">
-            <h2 className="text-5xl font-extrabold text-gray-800 leading-tight"> Fast & Reliable <span className="text-emerald-600">Laundry</span> Service</h2>
-            <p className="text-gray-600 mt-4 text-lg">We pick up your clothes, wash them with care, and deliver them back fresh,  clean, and on time — hassle-free. </p>
+            <h2 className="text-5xl font-extrabold text-white leading-tight"> Fast & Reliable <span className="text-emerald-600">Laundry</span> Service</h2>
+            <p className="text-white mt-4 text-lg">We pick up your clothes, wash them with care, and deliver them back fresh,  clean, and on time — hassle-free. </p>
             <div className="mt-6 flex gap-4">
                 <button className="bg-emerald-700 text-white px-6 py-3 rounded-lg hover:bg-blue-700">  Get Started </button>
                 <button className="border border-blue-600 text-emerald-600 px-6 py-3 rounded-lg ">Learn More </button>
             </div>
             </div>
-            <img className="w-[500px]  rounded-s-lg" src="https://i.pinimg.com/736x/6f/3d/86/6f3d869f17093d2adf68d2b2989fdd3b.jpg"  alt="Laundry Service"/>
+            <img className="w-80 h-80  rounded-full" src="https://i.pinimg.com/736x/6f/3d/86/6f3d869f17093d2adf68d2b2989fdd3b.jpg"  alt="Laundry Service"/>
+            <img className="w-80 h-80 rounded-full" src="https://i.pinimg.com/1200x/bb/12/96/bb129643abbe1638d6360a7625e886bb.jpg" alt="" />
          </section>
 
       {/* Services Section */}
