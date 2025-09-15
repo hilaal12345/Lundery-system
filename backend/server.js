@@ -3,6 +3,7 @@ const cors=require("cors")
 const mongoose  = require("mongoose")
 const  customerrouter = require("./routes/customer")
 const servicerouter=require("./routes/service")
+const order=require("./routes/orderrouter")
 const  adminrouter = require("./routes/admin")
 
 require("dotenv").config()
@@ -20,6 +21,8 @@ mongoose.connect(process.env.db_Url).then(()=>console.log("sucsess concection"))
 app.use(customerrouter)
 app.use(servicerouter)
 app.use(adminrouter)
+
+app.use(order)
 
 
 

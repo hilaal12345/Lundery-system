@@ -9,9 +9,9 @@ function Header(){
         <h1 className="text-emerald-600 text-2xl font-bold">HSH LAUNDRY </h1>   
         <ul className="flex text-emerald-600 gap-8 text-2xl font-semibold ">
            <Link to={"/"}><li>Home</li></Link>
-             <li>About</li>
+            <Link to={"/about"}> <li>About</li></Link>
             <Link to={"/service"}><li>Service</li></Link>
-            <li>Contact</li>
+            <Link to={"/contact"}><li>Contact</li></Link>
         </ul>
         <div>
             <button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
@@ -24,7 +24,7 @@ function Header(){
         
     </div>
 
-  <Home/>
+
 
     </>
 }
