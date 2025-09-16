@@ -199,7 +199,7 @@ export default function AddServiceForm() {
         </div>
 
         <div>
-          <label className="block text-gray-700">Price (£)</label>
+          <label className="block text-gray-700">Price ($)</label>
           <input
             type="number"
             name="price"

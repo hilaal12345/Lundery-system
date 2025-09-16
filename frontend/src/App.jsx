@@ -1,61 +1,263 @@
 
-// import Footer from "./components/footer"
-// import Header from "./components/header"
-// import { Routes, Route } from "react-router-dom"
-// import Home from "./pages/home"
-// // import Service from "./pages/services"
-// import About from "./pages/about"
-// import Contact from "./pages/coontact"
-// import Register from "./pages/registration"
-// import Login from "./pages/login"
-// import Dashboard from "./pages/Dashboard"
-// // import ServiceDisplay from "./Dash/displayOrder"
-// import OrderDisplay from "./Dash/displayOrder"
+// // import { Routes, Route } from "react-router-dom"
+// import Footer from "./components/footer";
+// import Header from "./components/header";
+
+// import Home from "./pages/home";
+// import About from "./pages/about";
+// import Contact from "./pages/coontact";
+// import Register from "./pages/registration";
+// import Login from "./pages/login";
+// import Dashboard from "./pages/Dashboard";
+// import OrderForm from "./pages/addOrder";
+// import ServiceDisplay from "./Dash/displaySer";
+// import ForgetPassword from "./pages/forget";
+// import ProfileForm from "./pages/profile";
+// import ProtectAdmin from "./pages/protectAdmin";
+// import ProtectCustomer from "./pages/protectCustomer";
+
+// // Layout leh Header (Home, Product)
+// function MainLayout({ children }) {
+//   return (
+//     <div>
+//       <Header />
+
+//       {children}
+//     </div>
+//   );
+// }
+
+// // Layout leh Dashboard (Dashboard iyo Product-ka gudaha dashboard)
+// function DashboardLayout({ children }) {
+//   return (
+//     <div className="flex">
+//       <Dashboard /> {/* Sidebar-ka dashboard */}
+//       <div className="flex-1 p-6">{children}</div>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <Routes>
+//         {/* Customer Protected Routes */}
+//         <Route
+//           path="/"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <Home />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/about"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <About />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/contact"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <Contact />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/registration"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <Register />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/login"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <Login />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/orderform"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <OrderForm />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/forgetpassword"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <ForgetPassword />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+//         <Route
+//           path="/profile"
+//           element={
+//             <ProtectCustomer>
+//               <MainLayout>
+//                 <ProfileForm />
+//               </MainLayout>
+//             </ProtectCustomer>
+//           }
+//         />
+
+//         {/* Admin Protected Routes */}
+//         <Route
+//           path="/dashboard"
+//           element={
+//             <ProtectAdmin>
+//               <DashboardLayout>
+//                 <Dashboard />
+//               </DashboardLayout>
+//             </ProtectAdmin>
+//           }
+//         />
+//         <Route
+//           path="/servicedisplay"
+//           element={
+//             <ProtectAdmin>
+//               <DashboardLayout>
+//                 <ServiceDisplay />
+//               </DashboardLayout>
+//             </ProtectAdmin>
+//           }
+//         />
+//       </Routes>
+
+//       <Footer />
+//     </>
+//   );
+// }
+
+// export default App;
+import Footer from "./components/footer"
+import Header from "./components/header"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/home"
 // import Service from "./pages/services"
-// import Orderform from "./order"
-// import ServiceDisplayOne from "./service/serviceDisplay"
-// import AddService from "./service/add service"
-// import UpdateService from "./service/update service"
-// import CustomerDisplay from "./Dash/CustomerDisplay"
-// import AdminDisplay from "./Dash/Admin Display"
+import About from "./pages/about"
+import Contact from "./pages/coontact"
+import Register from "./pages/registration"
+import Login from "./pages/login"
+import Dashboard from "./pages/Dashboard"
+// import ServiceDisplay from "./Dash/displayOrder"
+import OrderDisplay from "./Dash/displayOrder"
+import Service from "./pages/services"
+import Orderform from "./order"
+import ServiceDisplayOne from "./service/serviceDisplay"
+import AddService from "./service/add service"
+import UpdateService from "./service/update service"
+import CustomerDisplay from "./Dash/CustomerDisplay"
+import AdminDisplay from "./Dash/Admin Display"
+// import Profile from "./pages/profile"
+import ForgetPassword from "./pages/forget"
+
+// import ProtectAdmin from "./pages/protectAdmin"
+// import ProtectCustomer from "./pages/protectCustomer"
 
 
-// // import CustomerOrder from "./user/order user"
-// // import UpdateOrder from "./user/update order"
+// import CustomerOrder from "./user/order user"
+// import UpdateOrder from "./user/update order"
+
+function MainLayout({ children }) {
+  return (
+    <div>
+      <Header />
+      {children}
+    </div>
+  )
+}
+
+// Layout leh Dashboard (Dashboard iyo Product-ka gudaha dashboard)
+function DashboardLayout({ children }) {
+  return (
+    <div className="flex">
+      <Dashboard /> {/* Sidebar-ka dashboard */}
+      <div className="flex-1 p-6">{children}</div>
+    </div>
+  )
+}
 
 
 
-// function App(){
-//   return <>
-//     <Header/>
+function App(){
+  return <>
+    {/* <Header/> */}
     
    
     
    
     
       
-//     <Routes>
+    <Routes >
 
-//       <Route path="/"element={<Home/>}/>
-//       <Route path="/about"element={<About/>}/>
-//       <Route path="/service"element={ <Service/>}/>
-//       <Route path="/contact"element={ <Contact/>}/>
-//       <Route path="/Registration"element={ <Register/>}/>
-//       <Route path="/login"element={ <Login/>}/>
-//        <Route path="/dashbord"element={<Dashboard/>}/>
-//        <Route path="/OrderForm"element={<Orderform/>}/>
-//        <Route path="/ServiceDisplay"element={<ServiceDisplayOne/>}/>
-//        <Route path="/OrderDisplay"element={ <OrderDisplay/>}/>
-//        <Route path="/Add Service"element={<AddService/>}/>
-//        {/* <Route path="/UpdateOrder/:id"element={<UpdateOrder/>}/> */}
-//        {/* <Route path="/UpdateService/:id"element={<UpdateService/>}/> */}
-//        <Route path="/UpdateService/:id" element={<UpdateService />} />
-//        {/* <Route path="/CustomerDisplay" element={<CustomerDisplay/>} /> */}
-//        <Route path="/CustomerDisplay" element={<CustomerDisplay/>} />
-//        <Route path="/AdminDisplay" element={<AdminDisplay/>} />
+      <Route path="/"element={<MainLayout><Home/></MainLayout>}/>
+      <Route path="/about"element={<MainLayout><About/></MainLayout>}/>
+      <Route path="/service"element={<MainLayout><Service/></MainLayout>}/>
+      <Route path="/contact"element={<MainLayout><Contact/></MainLayout>}/>
+      <Route path="/Registration"element={<MainLayout><Register/></MainLayout>}/>
+      <Route path="/login"element={<MainLayout><Login/></MainLayout>}/>
 
-//     </Routes>
-//     {/* <CustomerOrder/> */}
+       <Route path="/dashbord"element={<DashboardLayout><Dashboard/></DashboardLayout>}/>
+       <Route path="/OrderForm"element={<DashboardLayout><Orderform/></DashboardLayout>}/>
+       <Route path="/ServiceDisplay"element={<DashboardLayout><ServiceDisplayOne/></DashboardLayout>}/>
+       <Route path="/OrderDisplay"element={<DashboardLayout><OrderDisplay/></DashboardLayout>}/>
+       <Route path="/Add Service"element={<DashboardLayout><AddService/></DashboardLayout>}/>
+       {/* <Route path="/UpdateOrder/:id"element={<UpdateOrder/>}/> */}
+       {/* <Route path="/UpdateService/:id"element={<UpdateService/>}/> */}
+       <Route path="/UpdateService/:id" element={<DashboardLayout><UpdateService /></DashboardLayout>} />
+       {/* <Route path="/CustomerDisplay" element={<CustomerDisplay/>} /> */}
+       <Route path="/CustomerDisplay" element={<DashboardLayout><CustomerDisplay/></DashboardLayout>} />
+       <Route path="/AdminDisplay" element={<DashboardLayout><AdminDisplay/></DashboardLayout>} />
+       
+      {/* <Route path="/Profile"element={<MainLayout><Profile/></MainLayout>}/> */}
+      <Route path="/forgetPassword"element={<MainLayout><ForgetPassword/></MainLayout>}/>
+
+
+
+       
+
+
+
+       {/* <Route path="/sssss" element={<ProtectAdmin/>} />
+       <Route path="/sssss" element={<ProtectCustomer/>} /> */}
+
+      
+
+
+
+
+
+
+
+    </Routes>
+   
+    
+    
+    
+    
    
   
   
@@ -85,15 +287,11 @@
 
     
     
+
+    <Footer/>
     
+  </>
 
   
-    
-
-//     <Footer/>
-    
-//   </>
-
-  
-// } 
-// export default App  
+} 
+export default App

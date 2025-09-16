@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
+// import Dashboard from "../pages/Dashboard";
 import { toast } from "react-toastify";
 
 function ServiceDisplayOne() {
@@ -30,7 +30,7 @@ function ServiceDisplayOne() {
 
   return (
     <div className="flex">
-      <Dashboard />
+      {/* <Dashboard /> */}
       <div className="p-8 bg-gray-50 min-h-screen">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Service List</h2>
 

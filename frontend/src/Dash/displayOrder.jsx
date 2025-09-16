@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Dashboard from "../pages/Dashboard";
+// import Dashboard from "../pages/Dashboard";
 
 function OrderDisplay() {
   const [data, setData] = useState([]);
@@ -49,7 +49,7 @@ function OrderDisplay() {
 
   return (
     <div className="flex gap-10">
-      <Dashboard />
+      {/* <Dashboard /> */}
       <div className="p-8 bg-gray-50 w-full min-h-screen">
         <h2 className="text-3xl font-bold mb-4">Orders List</h2>
         <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">

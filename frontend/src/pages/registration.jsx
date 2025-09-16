@@ -103,12 +103,30 @@ function Register() {
                 />
             </div>
 
+            
+            
+
+
           <button onClick={(e) => handleInsert(e)}
             type="submit"
             className="w-full rounded-xl bg-gray-900 px-4 py-2 text-white font-medium hover:bg-black"
           >
            {active === "customer" ? "Register Customer" : "Register Admin"}
           </button>
+
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-600">
+              Don't have an email?{" "}
+              <a
+                href="https://accounts.google.com/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Create Email Account
+              </a>
+            </p>
+          </div>
         </form>
 
         

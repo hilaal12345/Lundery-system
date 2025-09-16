@@ -5,7 +5,12 @@ const  customerrouter = require("./routes/customer")
 const  order=require("./routes/orderrouter")
 const  adminrouter = require("./routes/admin")
 const  orderRouter = require("./routes/orderrouter")
+<<<<<<< HEAD
 const  ServiceRouter = require("./routes/service")
+=======
+const  Forget = require("./routes/forget")
+const  profile = require("./routes/profile")
+>>>>>>> 8b8c028a37f89f70921a256842f2890703125339
 
 
 require("dotenv").config()
@@ -18,7 +23,7 @@ const PORT=process.env.port || 3000
 
 mongoose.connect(process.env.db_Url).then(()=>console.log("sucsess concection"))
 
-// app.use("/allImages",express.static("docment"))
+app.use("/allImages",express.static("document"))
 
 app.use(customerrouter)
 app.use(ServiceRouter)
@@ -26,6 +31,8 @@ app.use(adminrouter)
 app.use(orderRouter)
 
 app.use(order)
+app.use(Forget)
+app.use(profile)
 
 
 

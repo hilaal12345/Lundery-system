@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 // function Service(){
 //           return <>
@@ -124,25 +124,25 @@ export default function Service() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-800">2 x 2 Piece Suit</h3>
-              <p className="text-emerald-600 text-xl font-bold mt-2">Price £24</p>
+              <p className="text-emerald-600 text-xl font-bold mt-2">Price $24</p>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-800">20 Shirts on Hangers</h3>
-              <p className="text-emerald-600 text-xl font-bold mt-2">Price £43</p>
+              <p className="text-emerald-600 text-xl font-bold mt-2">Price $5</p>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition">
               <h3 className="text-lg font-semibold text-gray-800">2 Bed Sets (Double/King) <br /> Wash/Dry + Iron</h3>
-              <p className="text-emerald-600 text-xl font-bold mt-2">Price £20</p>
+              <p className="text-emerald-600 text-xl font-bold mt-2">Price $2</p>
             </div>
           </div>
 
           {/* Button */}
           <div className="text-center mt-10">
-            <button className="bg-emerald-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-emerald-700 transition">
-              VIEW FULL PRICE LIST
-            </button>
+          <Link to="/OrderForm"><button className="bg-emerald-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-emerald-700 transition">
+              ADD YOUR ORDER
+            </button></Link>
           </div>
         </div>
       </section>

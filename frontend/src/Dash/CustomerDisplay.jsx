@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
+// import Dashboard from "../pages/Dashboard";
 // import { toast } from "react-toastify";
 
 function CustomerDisplay() {
@@ -30,8 +30,8 @@ function CustomerDisplay() {
 
   return (
     <div className="flex">
-      <Dashboard />
-      <div className="p-8 bg-gray-50 min-h-screen">
+      {/* <Dashboard /> */}
+      <div className="p-8 bg-gray-50 min-h-screen ml-20">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Customers Registration</h2>
 
         <div className="overflow-x-auto">

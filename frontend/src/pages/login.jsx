@@ -69,6 +69,12 @@ function Login() {
             />
           </div>
 
+          <p className="text-sm text-gray-600 text-center mt-2">
+            <a href="/forgetPassword" className="text-blue-500 hover:underline">
+              Forgot Password?
+            </a>
+          </p>
+
           <button onClick={(e) => handleInsert(e)}
             type="submit"
             className="w-full rounded-xl bg-gray-900 px-4 py-2 text-white font-medium hover:bg-black"
