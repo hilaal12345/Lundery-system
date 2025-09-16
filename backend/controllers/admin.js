@@ -74,4 +74,13 @@ const adminLogin = async (req, res) => {
 }
 }
 
-module.exports = { createAdmin, adminLogin }
+const readAdmin = async (req, res) => {
+  try {
+    const customers = await adminModel.find().select("-password"); // password ma soo celinayo
+    res.status(200).json(customers);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+module.exports = { createAdmin, adminLogin,readAdmin }
