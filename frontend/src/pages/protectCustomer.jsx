@@ -1,8 +1,8 @@
 import {Navigate}from "react-router-dom"
 function ProtectCustomer({children}){
     
-    const admin=localStorage.getItem("customer")
-    if (!customer) {
+    const Customer=localStorage.getItem("customer")
+    if (!Customer) {
         return <Navigate to={"/Registration"} replace/>
     }
 

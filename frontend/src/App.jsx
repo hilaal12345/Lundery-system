@@ -2,9 +2,10 @@ import Footer from "./components/footer"
 import Header from "./components/header"
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/home"
-// import Service from "./pages/services"
+import Service from "./pages/services"
 import About from "./pages/about"
 import Contact from "./pages/coontact"
+<<<<<<< HEAD
 import Register from "./pages/registration"
 import Login from "./pages/login"
 import Dashboard from "./pages/Dashboard"
@@ -36,6 +37,16 @@ function DashboardLayout({ children }) {
     </div>
   )
 }
+=======
+// import Register from "./pages/registration"
+// import Login from "./pages/login"
+// import Dashboard from "./pages/Dashboard"
+
+// // import ServiceDisplay from "./Dash/displayOrder"
+// // import OrderDisplay from "./Dash/displayOrder"
+// import Service from "./pages/services"
+// import Orderform from "./order"
+>>>>>>> 11ba6d6539d11fb898ae9dbbaf9a5977580140c8
 
 
 
@@ -47,9 +58,10 @@ function App(){
     
    
     
-      {/* <Route path="/service"element={ <Service/>}/> */}
+      
     <Routes>
 
+<<<<<<< HEAD
      
 
       <Route path="/"element={
@@ -73,21 +85,22 @@ function App(){
        <Route path="/profile"element={
         <ProtectCustomer><MainLayout><ProfileForm/></MainLayout> </ProtectCustomer>}/>
 
+=======
+      <Route path="/"element={<Home/>}/>
+      <Route path="/about"element={<About/>}/>
+      <Route path="/service"element={ <Service/>}/>
+      <Route path="/contact"element={ <Contact/>}/>
+      {/* <Route path="/Registration"element={ <Register/>}/>
+      <Route path="/login"element={ <Login/>}/>
+       <Route path="/dashbord"element={<Dashboard/>}/>
+       <Route path="/OrderForm"element={<Orderform/>}/>
+       <Route path="/ServiceDisplay"element={<ServiceDisplay/>}/>
+       <Route path="/OrderDisplay"element={ <OrderDisplay/>}/> */}
+>>>>>>> 11ba6d6539d11fb898ae9dbbaf9a5977580140c8
     </Routes>
-
- 
     
-
-    
-
-    
-    
-    
-
-  
-    
-
     <Footer/>
+    
   </>
 
   

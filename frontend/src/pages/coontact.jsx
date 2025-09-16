@@ -41,20 +41,23 @@ import Header from "../components/header";
           </p>
           <ul className="space-y-6">
             <li>
-              <span className="block font-semibold">Phone</span>
+              <span className="block font-semibold text-2xl">Phone</span>
               <p className="text-emerald-100">+252 61 234 5678</p>
             </li>
             <li>
-              <span className="block font-semibold">Email</span>
-              <p className="text-emerald-100">support@laundryexpress.com</p>
+              <span className="block font-semibold text-2xl">Email</span>
+              <a  href="mailto:omlasbashir@gmail.com" className=" text-emerald-100 hover:underline ">omlasbashir@gmail.com</a>
+
             </li>
             <li>
-              <span className="block font-semibold">Address</span>
+              <span className="block font-semibold text-2xl">Address</span>
               <p className="text-emerald-100">
                 KM4, Maka Al Mukarama Street, Mogadishu, Somalia
               </p>
             </li>
           </ul>
+
+          <a href="https://wa.me/252612338427" target="_blank" rel="noopener noreferrer" className=" bg-green-900 flex items-center px-10 py-1 rounded-lg font-semibold  mt-2 text-2xl text-white"><i className="fab fa-whatsapp mr-2"></i> ‪+252-612-33-84-27‬</a> 
         </div>
       </section>
 
