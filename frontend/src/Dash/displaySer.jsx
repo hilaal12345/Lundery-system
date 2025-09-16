@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Dashboard from "../pages/Dashboard";
+
 
 function ServiceDisplay() {
   const [data, setData] = useState([]);
@@ -24,8 +24,7 @@ function ServiceDisplay() {
     ]
 
   return <>
-    <div className="flex gap-10">
-      <Dashboard />
+    
       <div className="p-8 bg-gray-50 w-full min-h-screen">
         <h2 className="text-3xl font-bold mb-4">Orders List</h2>
         <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
@@ -64,7 +63,7 @@ function ServiceDisplay() {
           </tbody>
         </table>
       </div>
-    </div>
+  
  </>
 }
 

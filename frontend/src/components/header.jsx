@@ -22,9 +22,10 @@ function Header(){
         </ul>
         {
             getCustomer ? <div className="flex gap-5">
-            <button onClick={handleLogOut} className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
-                <i className="bg-emerald-700">logOut</i>
-            </button>
+            <NavLink to={"/profile"}> <button  className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
+                {/* <i className="bg-emerald-700"></i> */}
+                <i className="fa-solid fa-user"></i>
+            </button></NavLink>
 
             <NavLink to={"/OrderForm"}><button className="bg-emerald-700 px-10 text-white font-semibold rounded-lg text-xl py-2">
                 <i className="bg-emerald-700">Add Order</i>
