@@ -171,7 +171,7 @@ import AdminDisplay from "./Dash/Admin Display"
 // import Profile from "./pages/profile"
 import ForgetPassword from "./pages/forget"
 import ServiceDisplay from "./service/serviceDisplay"
-import UpdateNewService from "./service/update service"
+// import UpdateNewService from "./service/update service"
 import UpdatePrice from "./service/update service"
 import NewOrderForm from "./order/order form"
 import NEWOrdersDisplay from "./order/DisplayOrders"
@@ -188,6 +188,14 @@ function MainLayout({ children }) {
   return (
     <div>
       <Header />
+      {children}
+    </div>
+  )
+}
+function FootetrLayout({ children }) {
+  return (
+    <div>
+      <Footer/>
       {children}
     </div>
   )
@@ -216,15 +224,15 @@ function App(){
       
     <Routes >
 
-      <Route path="/"element={<MainLayout><Home/></MainLayout>}/>
-      <Route path="/about"element={<MainLayout><About/></MainLayout>}/>
-      <Route path="/service"element={<MainLayout><Service/></MainLayout>}/>
-      <Route path="/contact"element={<MainLayout><Contact/></MainLayout>}/>
-      <Route path="/Registration"element={<MainLayout><Register/></MainLayout>}/>
-      <Route path="/login"element={<MainLayout><Login/></MainLayout>}/>
+      <Route path="/"element={<MainLayout> <Home/><FootetrLayout/></MainLayout>} />
+      <Route path="/about"element={<MainLayout><About/><FootetrLayout/></MainLayout>}/>
+      <Route path="/service"element={<MainLayout><Service/><FootetrLayout/></MainLayout>}/>
+      <Route path="/contact"element={<MainLayout><Contact/><FootetrLayout/></MainLayout>}/>
+      <Route path="/Registration"element={<MainLayout><Register/><FootetrLayout/></MainLayout>}/>
+      <Route path="/login"element={<MainLayout><Login/><FootetrLayout/></MainLayout>}/>
 
        <Route path="/dashbord"element={<Dashboard/>}/>
-       <Route path="/OrderForm"element={<MainLayout><NewOrderForm/></MainLayout>}/>
+       <Route path="/OrderForm"element={<MainLayout><NewOrderForm/><FootetrLayout/></MainLayout>}/>
        <Route path="/ServiceDisplay"element={<DashboardLayout><ServiceDisplay/></DashboardLayout>}/>
        <Route path="/OrderDisplay"element={<DashboardLayout><NEWOrdersDisplay/></DashboardLayout>}/>
        <Route path="/Add Service"element={<DashboardLayout><AddService/></DashboardLayout>}/>
@@ -236,7 +244,7 @@ function App(){
        <Route path="/AdminDisplay" element={<DashboardLayout><AdminDisplay/></DashboardLayout>} />
        
       {/* <Route path="/Profile"element={<MainLayout><Profile/></MainLayout>}/> */}
-      <Route path="/forgetPassword"element={<MainLayout><ForgetPassword/></MainLayout>}/>
+      <Route path="/forgetPassword"element={<MainLayout><ForgetPassword/><FootetrLayout/></MainLayout>}/>
       
 
       <Route path="/UpdateService/:id" element={<DashboardLayout><UpdatePrice/></DashboardLayout>} />
@@ -262,7 +270,7 @@ function App(){
     </Routes>
 
     {/* <CustomerOrder/> */}
-    <Footer/>
+    
     
 
    
