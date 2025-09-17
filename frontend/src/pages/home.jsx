@@ -159,6 +159,77 @@ function Home() {
             </motion.div>
           </div>
         </section>
+
+
+        {/* Testimonials Section */}
+        <section className="px-4 md:px-10 py-16 bg-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#06D6A0]">
+            What Our Customers Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            <motion.div
+              className="bg-[#f8ffe5] p-6 rounded-2xl shadow-lg text-center transition transform hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+            >
+              <p className="text-gray-700 italic">
+                "Fast and reliable service! My clothes were perfectly cleaned and delivered on time."
+              </p>
+              <h3 className="mt-4 font-bold text-[#06D6A0]">- Amina H.</h3>
+            </motion.div>
+            <motion.div
+              className="bg-[#f8ffe5] p-6 rounded-2xl shadow-lg text-center transition transform hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+            >
+              <p className="text-gray-700 italic">
+                "Excellent ironing service! My shirts look crisp and new every time."
+              </p>
+              <h3 className="mt-4 font-bold text-[#06D6A0]">- Yusuf M.</h3>
+            </motion.div>
+            <motion.div
+              className="bg-[#f8ffe5] p-6 rounded-2xl shadow-lg text-center transition transform hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.4 }}
+            >
+              <p className="text-gray-700 italic">
+                "Pickup and delivery was super convenient. Highly recommended!"
+              </p>
+              <h3 className="mt-4 font-bold text-[#06D6A0]">- Fatima S.</h3>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Contact Info Section */}
+        <section className="px-4 md:px-10 py-16 bg-[#e0f7f4]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#06D6A0]">
+            Get In Touch
+          </h2>
+          <p className="text-center text-gray-700 mt-2 font-light">
+            We're here to help! Contact us for any queries or service requests.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-10 mt-10">
+            <div className="text-center">
+              <h3 className="font-bold text-lg text-[#06D6A0]">Phone</h3>
+              <p className="text-gray-700 mt-2">+252 61 233 84 27</p>
+            </div>
+            <div className="text-center">
+              <h3 className="font-bold text-lg text-[#06D6A0]">Email</h3>
+              <p className="text-gray-700 mt-2">info@laundryservice.com</p>
+            </div>
+            <div className="text-center">
+              <h3 className="font-bold text-lg text-[#06D6A0]">Address</h3>
+              <p className="text-gray-700 mt-2">Mogadishu, Somalia</p>
+            </div>
+          </div>
+        </section>
+
       </div>
     </>
   );
