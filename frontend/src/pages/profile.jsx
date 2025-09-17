@@ -125,14 +125,15 @@ import CustomerOrder from "../user/order user"
 // import CustomerOrder from "./user/order user"
 // import CustomerOrder from "../user/order user"
 
-// function Profile(){
-//   return<>
-//    {/* <CustomerOrder/> */}
+function Profile(){
+  return<>
   
-//   </>
+   
   
-// }
-// export default Profile
+  </>
+  
+}
+export default Profile
 
 
 

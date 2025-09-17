@@ -1,8 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import Dashboard from "../pages/Dashboard";
-// import { toast } from "react-toastify";
 
 function AdminDisplay() {
   const [data, setData] = useState([]);
@@ -17,65 +14,40 @@ function AdminDisplay() {
     handleReadData();
   }, []);
 
-//   const handleDelete = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:3000/delete/customer/${id}`);
-//       toast.success("Service deleted successfully!");
-//       handleReadData();
-//     } catch (error) {
-//       console.error("Delete failed:", error);
-//       toast.error("Failed to delete service");
-//     }
-//   };
-
   return (
     <div className="flex">
-      {/* <Dashboard /> */}
-      <div className="p-8 bg-gray-50 min-h-screen">
+      <div
+        className="p-8 min-h-screen w-full"
+        style={{ backgroundColor: "#f8ffe5" }}
+      >
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Admins</h2>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-gray-200">
+        <div className="overflow-x-auto shadow-lg rounded-2xl">
+          <table className="min-w-full bg-white rounded-2xl overflow-hidden">
+            <thead style={{ backgroundColor: "#06D6A0" }}>
               <tr>
-                <th className="py-3 px-6 text-left text-gray-600 font-semibold">
-                  #
+                <th className="py-4 px-6 text-left text-white font-semibold">#</th>
+                <th className="py-4 px-6 text-left text-white font-semibold">
+                  Admin Name
                 </th>
-                <th className="py-3 px-6 text-left text-gray-600 font-semibold">
-                  Customer Name
-                </th>
-                <th className="py-3 px-6 text-left text-gray-600 font-semibold">
+                <th className="py-4 px-6 text-left text-white font-semibold">
                   Email
                 </th>
-                
-                
               </tr>
             </thead>
             <tbody>
-              {data.map((items) => (
+              {data.map((items, index) => (
                 <tr
                   key={items._id}
-                  className="border-b hover:bg-gray-100 transition"
+                  className={`transition ${
+                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  } hover:bg-[#f8ffe5]`}
                 >
-                  <td className="py-3 px-4">{items.prId}</td>
-                  <td className="py-3 px-4">{items.name}</td>
-                  <td className="py-3 px-4">{items.email}</td>
-                  {/* <td className="py-3 px-4">{items.phone}</td> */}
-                  
-                  {/* <td className="py-3 px-4 flex gap-3">
-                    <Link to={`/UpdateService/${items._id}`}>
-                      <button className="text-green-500 mt-2 text-xl">
-                        <i className="fa-solid fa-pen-to-square"></i>
-                      </button>
-                    </Link>
-
-                    <button
-                      onClick={() => handleDelete(items._id)}
-                      className="text-red-500 mt-2 text-xl"
-                    >
-                      <i className="fa-solid fa-trash"></i>
-                    </button>
-                  </td> */}
+                  <td className="py-3 px-6 text-gray-700">{items.prId}</td>
+                  <td className="py-3 px-6 text-gray-800 font-medium">
+                    {items.name}
+                  </td>
+                  <td className="py-3 px-6 text-gray-700">{items.email}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,117 +1,140 @@
-import axios from "axios"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { toast, ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
-
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 function Register() {
-    const[name, setName] = useState("")
-    const[email, setEmail] = useState("")
-    const[phone, setPhone] = useState("")
-    const[password, setPassword]= useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [active, setActive] = useState("customer");
 
-    const[active, setActive] = useState("customer")
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  function handleInsert(e) {
+    e.preventDefault();
+    const url =
+      active === "customer"
+        ? "http://localhost:3000/create/customer"
+        : "http://localhost:3000/create/admin";
+    const payload =
+      active === "customer"
+        ? { name, phone, email, password }
+        : { name, email, password };
 
-    function handleInsert(e) {
-        e.preventDefault()
-        const url = active === "customer" ? "http://localhost:3000/create/customer" : "http://localhost:3000/create/admin"
-        const payload = active === "customer" ? {name:name, phone: phone, email: email, password: password} : {name: name, email: email, password: password}
-        axios.post(url,payload).then((res) => {
-          toast.success(`${active} Login succesfully`)
-            navigate("/login")
-        }).catch((error) => {
-          if(error){
-            toast.error("invalid email or password")
-          }
-        })
-      }
-            
-
+    axios
+      .post(url, payload)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: `${active} Registered Successfully!`,
+          showConfirmButton: false,
+          timer: 1500,
+          background: "#f8ffe5",
+          color: "#06D6A0",
+        });
+        navigate("/login");
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: "Invalid email or password",
+          background: "#f8ffe5",
+          color: "#06D6A0",
+        });
+      });
+  }
 
   return (
-    <div className="min-h-screen grid place-items-center bg-gray-50">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow p-6">
-        <div className="flex justify-center gap-8">
-          <button onClick={()=> setActive("customer")} className= {` px-12 py-3 rounded-2xl ${active === "customer" ? "bg-blue-500 text-white" : "border-2 border-black text-black"}`}>Customer</button>
-          <button onClick={()=> setActive("admin")} className= {` px-12 py-3 rounded-2xl ${active === "admin" ? "bg-blue-500 text-white" : "border-2 border-black text-black"}`}>Admin</button>
-        </div>
-        <h2 className="text-2xl font-semibold tracking-tight mt-5 mb-1">Register</h2>
-
-        <form className="space-y-4 mt-5">
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="name">
-             {active === "customer" ? "Customer Name" : "Admin Name"}
-            </label>
-            <input value={name} onChange={(e) => setName(e.target.value)}
-              id="name"
-              name="name"
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-             
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="email">
-              Email
-            </label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)}
-              
-              id="email"
-              type="email"
-              name="email"
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-              
-            />
-          </div>
-
-          <div style={{ display: active !== "customer" ? "none" : "" }}>
-            <label className="block text-sm font-medium mb-1" htmlFor="phone">
-              Phone
-            </label>
-            <input value={phone} onChange={(e) => setPhone(e.target.value)}
-              
-              id="phone"
-              name="phone"
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-              
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1" htmlFor="password">
-              Password
-            </label>
-            <input value={password} onChange={(e) => setPassword(e.target.value)}
-              id="password"
-              type="password"
-              name="password"
-              className="w-full rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-             
-            />
-          </div>
-          <div style={{ display: active === "admin" ? "block" : "none" }}>
-                <label className="block text-sm font-medium mb-1" htmlFor="role">
-                    Role
-                </label>
-                <input
-                    id="role"
-                    name="role"
-                    className="w-full rounded-xl border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-gray-800"
-                />
-            </div>
-
-            
-            
-
-
-          <button onClick={(e) => handleInsert(e)}
-            type="submit"
-            className="w-full rounded-xl bg-gray-900 px-4 py-2 text-white font-medium hover:bg-black"
+    <div className="min-h-screen grid place-items-center bg-[#f8ffe5] p-6">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 animate-fadeIn">
+        {/* Toggle Buttons */}
+        <div className="flex justify-center gap-4 mb-6">
+          <button
+            onClick={() => setActive("customer")}
+            className={`px-6 py-2 rounded-2xl font-semibold transition-transform duration-200 transform ${
+              active === "customer"
+                ? "bg-[#06D6A0] text-white scale-105 shadow-lg"
+                : "border-2 border-[#06D6A0] text-[#06D6A0] hover:scale-105"
+            }`}
           >
-           {active === "customer" ? "Register Customer" : "Register Admin"}
+            Customer
+          </button>
+          <button
+            onClick={() => setActive("admin")}
+            className={`px-6 py-2 rounded-2xl font-semibold transition-transform duration-200 transform ${
+              active === "admin"
+                ? "bg-[#06D6A0] text-white scale-105 shadow-lg"
+                : "border-2 border-[#06D6A0] text-[#06D6A0] hover:scale-105"
+            }`}
+          >
+            Admin
+          </button>
+        </div>
+
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+          {active === "customer" ? "Register Customer" : "Register Admin"}
+        </h2>
+
+        {/* Form */}
+        <form className="space-y-5">
+          <div>
+            <label className="block mb-1 font-medium text-gray-700">
+              {active === "customer" ? "Customer Name" : "Admin Name"}
+            </label>
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              placeholder="Enter name"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06D6A0] transition duration-300 shadow-sm"
+            />
+          </div>
+
+          <div>
+            <label className="block mb-1 font-medium text-gray-700">Email</label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Enter email"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06D6A0] transition duration-300 shadow-sm"
+            />
+          </div>
+
+          {active === "customer" && (
+            <div>
+              <label className="block mb-1 font-medium text-gray-700">Phone</label>
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="text"
+                placeholder="Enter phone number"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06D6A0] transition duration-300 shadow-sm"
+              />
+            </div>
+          )}
+
+          <div>
+            <label className="block mb-1 font-medium text-gray-700">Password</label>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Enter password"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06D6A0] transition duration-300 shadow-sm"
+            />
+          </div>
+
+          <button
+            onClick={handleInsert}
+            type="submit"
+            className="w-full bg-[#06D6A0] text-white py-3 rounded-xl font-semibold shadow-lg hover:bg-green-700 transition-transform duration-200 transform hover:scale-105"
+          >
+            {active === "customer" ? "Register Customer" : "Register Admin"}
           </button>
 
           <div className="mt-4 text-center">
@@ -121,19 +144,16 @@ function Register() {
                 href="https://accounts.google.com/signup"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-[#06D6A0] hover:underline"
               >
                 Create Email Account
               </a>
             </p>
           </div>
         </form>
-
-        
       </div>
-      <ToastContainer  position="top-right" autoClose={3000} />
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;

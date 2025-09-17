@@ -14,91 +14,106 @@ function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md px-4 md:px-16 py-2 md:py-4">
-      <div className="flex justify-between items-center">
-        <img className="w-24 md:w-32 h-24 md:h-32 mx-auto md:mx-0" src={logo} alt="Logo" />
+    <>
+      {/* Fixed Header */}
+      <header className="bg-[#06D6A0] shadow-md px-4 md:px-16 py-3 text-[#f8ffe5] fixed w-full z-50">
+        <div className="flex justify-between items-center">
+          {/* Logo as Circular Icon with Shadow */}
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+            <img className="w-full h-full object-cover" src={logo} alt="Logo" />
+          </div>
 
-        {/* Hamburger Menu Button (Mobile) */}
-        <button
-          className="md:hidden text-emerald-600 text-3xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <i className="fa-solid fa-bars"></i>
-        </button>
-
-        {/* Desktop Links */}
-        <ul className="hidden md:flex text-emerald-600 gap-8 text-lg md:text-2xl font-semibold">
-          <Link to={"/"}><li className="hover:text-emerald-800 transition">Home</li></Link>
-          <Link to={"/about"}><li className="hover:text-emerald-800 transition">About</li></Link>
-          <Link to={"/service"}><li className="hover:text-emerald-800 transition">Service</li></Link>
-          <Link to={"/contact"}><li className="hover:text-emerald-800 transition">Contact</li></Link>
-        </ul>
-
-        {/* Desktop User Actions */}
-        <div className="hidden md:flex gap-4">
-          {getCustomer ? (
-            <>
-              <NavLink to={"/profile"}>
-                <button className="bg-emerald-700 px-6 md:px-10 text-white font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-emerald-800 transition">
-                  <i className="fa-solid fa-user mr-2"></i> Profile
-                </button>
-              </NavLink>
-
-              <button
-                onClick={handleLogOut}
-                className="bg-red-600 px-6 md:px-10 text-white font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-red-700 transition"
-              >
-                Log Out
-              </button>
-            </>
-          ) : (
-            <>
-              <NavLink to={"/login"}>
-                <button className="bg-emerald-700 px-6 md:px-10 text-white font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-emerald-800 transition">
-                  Login
-                </button>
-              </NavLink>
-
-              <NavLink to={"/registration"}>
-                <button className="bg-emerald-700 px-6 md:px-10 text-white font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-emerald-800 transition">
-                  Sign Up
-                </button>
-              </NavLink>
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Mobile Menu with Animation */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden mt-2 flex flex-col gap-4 text-center text-emerald-600"
+          {/* Hamburger Menu Button (Mobile) */}
+          <button
+            className="md:hidden text-[#f8ffe5] text-3xl"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <Link to={"/"} onClick={() => setMenuOpen(false)}><li>Home</li></Link>
-            <Link to={"/about"} onClick={() => setMenuOpen(false)}><li>About</li></Link>
-            <Link to={"/service"} onClick={() => setMenuOpen(false)}><li>Service</li></Link>
-            <Link to={"/contact"} onClick={() => setMenuOpen(false)}><li>Contact</li></Link>
+            <i className="fa-solid fa-bars"></i>
+          </button>
 
+          {/* Desktop Links */}
+          <ul className="hidden md:flex gap-8 text-lg md:text-xl font-semibold">
+            <Link to={"/"}><li className="hover:text-white transition">Home</li></Link>
+            <Link to={"/about"}><li className="hover:text-white transition">About</li></Link>
+            <Link to={"/service"}><li className="hover:text-white transition">Service</li></Link>
+            <Link to={"/contact"}><li className="hover:text-white transition">Contact</li></Link>
+          </ul>
+
+          {/* Desktop User Actions */}
+          <div className="hidden md:flex gap-4">
             {getCustomer ? (
               <>
-                <NavLink to={"/Profile"} onClick={() => setMenuOpen(false)}><li>Profile</li></NavLink>
-                <button onClick={handleLogOut} className="text-left">Log Out</button>
+                <NavLink to={"/OrderForm"}>
+                  <button className="bg-[#f8ffe5] text-[#06D6A0] px-6 md:px-10 font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-white transition">
+                    <i className="fa-solid fa-user mr-2"></i> Order Now
+                  </button>
+                </NavLink>
+
+                <button
+                  onClick={handleLogOut}
+                  className="bg-red-600 px-6 md:px-10 text-white font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-red-700 transition"
+                >
+                  Log Out
+                </button>
               </>
             ) : (
               <>
-                <NavLink to={"/login"} onClick={() => setMenuOpen(false)}><li>Login</li></NavLink>
-                <NavLink to={"/registration"} onClick={() => setMenuOpen(false)}><li>Sign Up</li></NavLink>
+                <NavLink to={"/login"}>
+                  <button className="bg-[#f8ffe5] text-[#06D6A0] px-6 md:px-10 font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-white transition">
+                    Login
+                  </button>
+                </NavLink>
+
+                <NavLink to={"/registration"}>
+                  <button className="bg-[#f8ffe5] text-[#06D6A0] px-6 md:px-10 font-semibold rounded-lg text-lg md:text-xl py-2 hover:bg-white transition">
+                    Sign Up
+                  </button>
+                </NavLink>
               </>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+          </div>
+        </div>
+
+        {/* Mobile Menu with Animation */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden mt-2 flex flex-col gap-4 text-center"
+            >
+              <Link to={"/"} onClick={() => setMenuOpen(false)}><li className="hover:text-white transition">Home</li></Link>
+              <Link to={"/about"} onClick={() => setMenuOpen(false)}><li className="hover:text-white transition">About</li></Link>
+              <Link to={"/service"} onClick={() => setMenuOpen(false)}><li className="hover:text-white transition">Service</li></Link>
+              <Link to={"/contact"} onClick={() => setMenuOpen(false)}><li className="hover:text-white transition">Contact</li></Link>
+
+              {getCustomer ? (
+                <>
+                  <NavLink to={"/OrderForm"} onClick={() => setMenuOpen(false)}>
+                    <li className="hover:text-white transition">Order Now</li>
+                  </NavLink>
+                  <button onClick={handleLogOut} className="text-left hover:text-white transition">Log Out</button>
+                </>
+              ) : (
+                <>
+                  <NavLink to={"/login"} onClick={() => setMenuOpen(false)}>
+                    <li className="hover:text-white transition">Login</li>
+                  </NavLink>
+                  <NavLink to={"/registration"} onClick={() => setMenuOpen(false)}>
+                    <li className="hover:text-white transition">Sign Up</li>
+                  </NavLink>
+                </>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Spacer to prevent content from being hidden under fixed header */}
+      <div className="h-28 md:h-32"></div>
+    </>
   );
 }
 
