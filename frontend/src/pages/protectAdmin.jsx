@@ -1,5 +1,5 @@
 import {Navigate}from "react-router-dom"
-function protectAdmin({children}){
+function ProtectAdmin({children}){
     
     const admin=localStorage.getItem("admin")
     if (!admin) {
@@ -8,4 +8,4 @@ function protectAdmin({children}){
 
     return  children
 
-} export default protectAdmin
+} export default ProtectAdmin

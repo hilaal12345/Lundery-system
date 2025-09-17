@@ -7,7 +7,7 @@ const IRON_PRICE = 2;
 function OrderForm() {
   // States gooni gooni ah
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
+ 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [district, setDistrict] = useState("");
@@ -18,6 +18,7 @@ function OrderForm() {
   const [ironKg, setIronKg] = useState(0);
 
   const [total, setTotal] = useState(0);
+  
 
   // Live total calculation
  useEffect(() => {
@@ -32,7 +33,7 @@ function OrderForm() {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:3000/orders", {
-        customer: { name, address, email, phone, district, village },
+        customer: { name, email, phone, district, village },
         service: { washing, ironing, washKg, ironKg },
       });
       alert("Order Created! Total: $" + res.data.totalAmount);
@@ -50,7 +51,7 @@ function OrderForm() {
       <h2 className="text-2xl font-bold text-center mb-4">Create Order</h2>
 
       <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2 border border-gray-300 rounded" />
-      <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} className="w-full p-2 border border-gray-300 rounded" />
+     
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border border-gray-300 rounded" />
       <input type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full p-2 border border-gray-300 rounded" />
       <input type="text" placeholder="District" value={district} onChange={(e) => setDistrict(e.target.value)} className="w-full p-2 border border-gray-300 rounded" />
@@ -72,6 +73,8 @@ function OrderForm() {
       <div className="text-lg font-bold">Total: ${total}</div>
 
       <button onClick={handleSubmit} type="text" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Submit Order</button>
+
+
     </form>
   </>
 }

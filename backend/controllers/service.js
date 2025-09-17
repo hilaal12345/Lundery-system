@@ -51,28 +51,60 @@ const readSingleService = async(req,res) => {
     }
 }
 //update
-const updateService=async(req,res)=>{
-          try{
-        const { name, price, desc, kg,category } = req.body
-        const updateData = await productModel.updateOne(
-            {_id: req.params.id},
-            {$set: {
-                    name:name,
-                    desc:desc,
-                    price:price,
-                    kg:kg,
-                    category:category
+// const updateService=async(req,res)=>{
+//           try{
+//         const { name, price, desc, kg,category } = req.body
+//         const updateData = await productModel.updateOne(
+//             {_id: req.params.id},
+//             {$set: {
+//                     name:name,
+//                     desc:desc,
+//                     price:price,
+//                     kg:kg,
+//                     category:category
                
 
-            }}
-        )
-        if(updateData){
-            res.send("succes update")
+//             }}
+//         )
+//         if(updateData){
+//             res.send("succes update")
+//         }
+//     } catch(error){
+//         res.status(400).json({message: error.message})
+//     }
+// }
+
+const updateService = async (req, res) => {
+  try {
+    const { name, price, desc, kg, category } = req.body;
+
+    const updatedService = await productModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          name,
+          desc,
+          price,
+          kg,
+          category
         }
-    } catch(error){
-        res.status(400).json({message: error.message})
+      },
+      { new: true } // soo celi xogta cusub
+    );
+
+    if (!updatedService) {
+      return res.status(404).json({ message: "Service not found" });
     }
-}
+
+    res.status(200).json({
+      message: "Update successful",
+      data: updatedService
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
    
 //delet
 const deletService=async(req,res)=>{

@@ -1,13 +1,13 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function OrderForm() {
   const [customer, setCustomer] = useState({
     name: "",
-    address: "",
     email: "",
     phone: "",
+  
     district: "",
     neighborhood: "",
   });
@@ -21,7 +21,7 @@ export default function OrderForm() {
 
   const [total, setTotal] = useState(0);
 
-  // Xisaabi total markasta oo service la beddelo
+  // Xisaabi total marka service isbedelo
   useEffect(() => {
     let totalAmount = 0;
     if (service.washing) totalAmount += service.washKg * 5;
@@ -29,10 +29,12 @@ export default function OrderForm() {
     setTotal(totalAmount);
   }, [service]);
 
+  // Customer input change
   const handleChangeCustomer = (e) => {
     setCustomer({ ...customer, [e.target.name]: e.target.value });
   };
 
+  // Service input change
   const handleChangeService = (e) => {
     const { name, value, type, checked } = e.target;
     setService({
@@ -41,27 +43,35 @@ export default function OrderForm() {
     });
   };
 
+  // Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/orders", {
-        customer,
-        service,
+      const newOrder = { customer, service, totalAmount: total };
+      const response = await axios.post("http://localhost:3000/orders", newOrder);
+
+      // SweetAlert guul
+      Swal.fire({
+        icon: "success",
+        title: "Order Created!",
+        text: `Total: $${response.data.totalAmount}`,
+        showConfirmButton: true,
       });
-      alert("Order Created! Total: $" + response.data.order.totalAmount);
+
       // Reset form
-      setCustomer({
-        name: "",
-        address: "",
-        email: "",
-        phone: "",
-        district: "",
-        neighborhood: "",
-      });
+      setCustomer({ name: "", email: "", phone: "", district: "", neighborhood: "" });
       setService({ washing: false, ironing: false, washKg: 0, ironKg: 0 });
+      setTotal(0);
     } catch (error) {
       console.error(error);
-      alert("Error creating order");
+
+      // SweetAlert error
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Error creating order!",
+        showConfirmButton: true,
+      });
     }
   };
 
@@ -73,55 +83,17 @@ export default function OrderForm() {
         {/* Customer Info */}
         <div>
           <h3 className="font-semibold mb-2">Customer Information</h3>
-          <input
-            name="name"
-            value={customer.name}
-            onChange={handleChangeCustomer}
-            placeholder="Full Name"
-            className="w-full p-2 border rounded mb-2"
-            required
-          />
-          <input
-            name="address"
-            value={customer.address}
-            onChange={handleChangeCustomer}
-            placeholder="Address"
-            className="w-full p-2 border rounded mb-2"
-            required
-          />
-          <input
-            name="email"
-            value={customer.email}
-            onChange={handleChangeCustomer}
-            placeholder="Email"
-            type="email"
-            className="w-full p-2 border rounded mb-2"
-            required
-          />
-          <input
-            name="phone"
-            value={customer.phone}
-            onChange={handleChangeCustomer}
-            placeholder="Phone"
-            className="w-full p-2 border rounded mb-2"
-            required
-          />
-          <input
-            name="district"
-            value={customer.district}
-            onChange={handleChangeCustomer}
-            placeholder="District"
-            className="w-full p-2 border rounded mb-2"
-            required
-          />
-          <input
-            name="neighborhood"
-            value={customer.neighborhood}
-            onChange={handleChangeCustomer}
-            placeholder="Neighborhood"
-            className="w-full p-2 border rounded"
-            required
-          />
+          {["name", "email", "phone", "district", "neighborhood"].map((field) => (
+            <input
+              key={field}
+              name={field}
+              value={customer[field]}
+              onChange={handleChangeCustomer}
+              placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+              className="w-full p-2 border rounded mb-2"
+              required
+            />
+          ))}
         </div>
 
         {/* Service Info */}
@@ -129,14 +101,8 @@ export default function OrderForm() {
           <h3 className="font-semibold mb-2">Select Services</h3>
 
           <label className="flex items-center mb-2">
-            <input
-              type="checkbox"
-              name="washing"
-              checked={service.washing}
-              onChange={handleChangeService}
-              className="mr-2"
-            />
-            Washing
+            <input type="checkbox" name="washing" checked={service.washing} onChange={handleChangeService} className="mr-2" />
+            Washing ($5/kg)
           </label>
           {service.washing && (
             <input
@@ -151,14 +117,8 @@ export default function OrderForm() {
           )}
 
           <label className="flex items-center mb-2">
-            <input
-              type="checkbox"
-              name="ironing"
-              checked={service.ironing}
-              onChange={handleChangeService}
-              className="mr-2"
-            />
-            Ironing
+            <input type="checkbox" name="ironing" checked={service.ironing} onChange={handleChangeService} className="mr-2" />
+            Ironing ($2/kg)
           </label>
           {service.ironing && (
             <input
@@ -178,10 +138,7 @@ export default function OrderForm() {
           Total: <span className="text-green-600">${total}</span>
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-        >
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
           Submit Order
         </button>
       </form>

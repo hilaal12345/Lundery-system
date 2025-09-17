@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 // Service prices
@@ -7,11 +8,13 @@ const IRON_PRICE_PER_KG = 2;
 const orderSchema = mongoose.Schema({
   customer: {
     name: { type: String, required: true },
-    address: { type: String, required: true },
+    // address: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
-    village: { type: String, required: true },
+    district: { type: String, required: true },
+    neighborhood: { type: String, required: true },
   },
+
   service: {
     washing: { type: Boolean, default: false },
     ironing: { type: Boolean, default: false },
@@ -20,7 +23,7 @@ const orderSchema = mongoose.Schema({
   },
   totalAmount: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now },
-});
+}); 
 
 // Xisaabinta total
 orderSchema.methods.calculateTotal = function () {

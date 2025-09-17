@@ -22,7 +22,7 @@ function About() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            We’re more than just a laundry service — we’re your trusted partner in 
+            Were more than just a laundry service — were your trusted partner in 
             saving time and delivering freshness to your wardrobe.
           </motion.p>
         </section>
