@@ -8,6 +8,14 @@ const  orderRouter = require("./routes/orderrouter")
 const  ServiceRouter = require("./routes/service")
 const  Forget = require("./routes/forget")
 const  profile = require("./routes/profile")
+const stats=require("./routes/stats")
+
+
+const newserver=require("./routes/newService")
+const newOrder=require("./routes/newOrder")
+
+
+
 
 
 require("dotenv").config()
@@ -26,10 +34,13 @@ app.use(customerrouter)
 app.use(ServiceRouter)
 app.use(adminrouter)
 app.use(orderRouter)
-
 app.use(order)
 app.use(Forget)
 app.use(profile)
+
+app.use(newserver)
+app.use(stats)
+
 
 
 

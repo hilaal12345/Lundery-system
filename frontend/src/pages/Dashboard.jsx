@@ -1,22 +1,60 @@
-
 import { Link } from "react-router-dom";
+
 function Dashboard() {
-  const handleLogout=()=>{
-    localStorage.removeItem("admin")
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("admin");
+  };
+
   return (
-    <div className="w-64 bg-blue-500 text-white  min-h-screen p-6 shadow-md">
-   <h2 className="text-2xl font-bold mb-6 text-white">Dashboard</h2> 
-      <ul className="flex flex-col gap-3">
-        {/* <Link to="/dashboard"> <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition">Dashboard</li></Link> */}
-        <Link to="/ServiceDisplay"><li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"> <i className="fa-brands fa-product-hunt text-xl"></i>Service</li></Link>       
-        <Link to="/Add Service"><li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"> <i className="fa-brands fa-product-hunt text-xl"></i>Add Service</li></Link>       
-        <Link to={"/CustomerDisplay"}><li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"><i className="fa-solid fa-user text-xl"></i>Customer</li></Link>
-        <Link to={"/AdminDisplay"}><li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"><i className="fa-solid fa-user text-xl"></i>Admin</li></Link>
-       <Link to="/OrderDisplay"> <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"><i className="fa-solid fa-compass text-xl"></i>Order</li></Link>
-       <Link to={"/OrderForm"}><li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"><i className="fa-solid fa-compass text-xl"></i>Add Order</li></Link>
-        {/* <li className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition">Reports</li> */}
-      <Link to={"/login"}><li onClick={handleLogout} className="p-2 rounded-md hover:bg-gray-200 cursor-pointer transition"><i className="fa-solid fa-compass text-xl"></i>Logout</li></Link> 
+    <div className="w-64 min-h-screen p-6 shadow-xl bg-gradient-to-b from-[#06D6A0] to-[#1B9AAA] text-white">
+      <h2 className="text-3xl font-bold mb-8 text-center drop-shadow-lg">
+        Dashboard
+      </h2>
+      <ul className="flex flex-col gap-4">
+        <Link to="/vvv">
+          <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
+            <i className="fa-solid fa-gauge text-xl"></i>
+            <span className="text-lg font-medium">Dashboard</span>
+          </li>
+        </Link>
+
+        <Link to="/ServiceDisplay">
+          <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
+            <i className="fa-brands fa-product-hunt text-xl"></i>
+            <span className="text-lg font-medium">Service</span>
+          </li>
+        </Link>
+
+        <Link to="/CustomerDisplay">
+          <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
+            <i className="fa-solid fa-user text-xl"></i>
+            <span className="text-lg font-medium">Customer</span>
+          </li>
+        </Link>
+
+        <Link to="/AdminDisplay">
+          <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
+            <i className="fa-solid fa-users-gear text-xl"></i>
+            <span className="text-lg font-medium">Admin</span>
+          </li>
+        </Link>
+
+        <Link to="/OrderDisplay">
+          <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
+            <i className="fa-solid fa-receipt text-xl"></i>
+            <span className="text-lg font-medium">Order</span>
+          </li>
+        </Link>
+
+        <Link to="/login">
+          <li
+            onClick={handleLogout}
+            className="flex items-center gap-3 p-3 rounded-lg bg-red-500/80 hover:bg-red-600 transition duration-300 shadow-md"
+          >
+            <i className="fa-solid fa-right-from-bracket text-xl"></i>
+            <span className="text-lg font-medium">Logout</span>
+          </li>
+        </Link>
       </ul>
     </div>
   );
