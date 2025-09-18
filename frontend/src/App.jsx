@@ -24,6 +24,7 @@ import ServiceDisplay from "./service/serviceDisplay"
 import UpdatePrice from "./service/update service"
 import NewOrderForm from "./order/order form"
 import NEWOrdersDisplay from "./order/DisplayOrders"
+import Dash from "./pages/pageDashboard"
 // import CustomerOrder from "./user/order user"
 
 import ProtectAdmin from "./pages/protectAdmin"
@@ -73,32 +74,7 @@ function App(){
     
       
     <Routes>
-{/*     
-      <Route path="/"element={
-        <ProtectCustomer><MainLayout><Home/></MainLayout> </ProtectCustomer>}/>
-      <Route path="/about"element={
-        <ProtectCustomer><MainLayout> <About/> </MainLayout></ProtectCustomer> }/>
-      <Route path="/contact"element={ 
-        <ProtectCustomer><MainLayout><Contact/> </MainLayout> </ProtectCustomer>}/>
-      <Route path="/Registration"element={ 
-        <ProtectCustomer><MainLayout> <Register/> </MainLayout> </ProtectCustomer>}/>
-      <Route path="/login"element={ 
-        <ProtectCustomer><MainLayout><Login/> </MainLayout> </ProtectCustomer>}/>
-       <Route path="/dashbord"element={ <ProtectAdmin>
-        <DashboardLayout><Dashboard/> </DashboardLayout> </ProtectAdmin>}/>
-       <Route path="/OrderForm"element={
-        <ProtectCustomer><MainLayout><OrderForm/></MainLayout></ProtectCustomer> }/>
-       <Route path="/ServiceDisplay"element={<ProtectAdmin>
-        <DashboardLayout><ServiceDisplay/></DashboardLayout> </ProtectAdmin> }/>
-       <Route path="/forgetPassword"element={
-        <ProtectCustomer><MainLayout> <ForgetPassword/> </MainLayout></ProtectCustomer>}/>
-       <Route path="/profile"element={
-        <ProtectCustomer><MainLayout><ProfileForm/></MainLayout> </ProtectCustomer>}/>
-       <Route path="/service"element={
-        <ProtectCustomer><MainLayout><Service/></MainLayout> </ProtectCustomer>}/> */}
 
-    
-    {/* <Routes > */}
 
       <Route path="/"element={<MainLayout> <Home/><FootetrLayout/></MainLayout>} />
       <Route path="/about"element={<MainLayout><About/><FootetrLayout/></MainLayout>}/>
@@ -106,35 +82,22 @@ function App(){
       <Route path="/contact"element={<MainLayout><Contact/><FootetrLayout/></MainLayout>}/>
       <Route path="/Registration"element={<MainLayout><Register/><FootetrLayout/></MainLayout>}/>
       <Route path="/login"element={<MainLayout><Login/><FootetrLayout/></MainLayout>}/>
-
-       <Route path="/dashbord"element={<Dashboard/>}/>
        <Route path="/OrderForm"element={<MainLayout><NewOrderForm/><FootetrLayout/></MainLayout>}/>
-       <Route path="/ServiceDisplay"element={<DashboardLayout><ServiceDisplay/></DashboardLayout>}/>
-       <Route path="/OrderDisplay"element={<DashboardLayout><NEWOrdersDisplay/></DashboardLayout>}/>
-       <Route path="/Add Service"element={<DashboardLayout><AddService/></DashboardLayout>}/>
-       {/* <Route path="/UpdateOrder/:id"element={<UpdateOrder/>}/> */}
-       {/* <Route path="/UpdateService/:id"element={<UpdateService/>}/> */}
-       <Route path="/UpdateService/:id" element={<DashboardLayout><UpdateService /></DashboardLayout>} />
-       {/* <Route path="/CustomerDisplay" element={<CustomerDisplay/>} /> */}
-       <Route path="/CustomerDisplay" element={<DashboardLayout><CustomerDisplay/></DashboardLayout>} />
-       <Route path="/AdminDisplay" element={<DashboardLayout><AdminDisplay/></DashboardLayout>} />
+       <Route path="/ServiceDisplay"element={<ProtectAdmin><DashboardLayout><ServiceDisplay/></DashboardLayout></ProtectAdmin>}/>
+       <Route path="/OrderDisplay"element={<ProtectAdmin><DashboardLayout><NEWOrdersDisplay/></DashboardLayout></ProtectAdmin>}/>
+       <Route path="/Add Service"element={<ProtectAdmin><DashboardLayout><AddService/></DashboardLayout></ProtectAdmin>}/>
+      
+       <Route path="/UpdateService/:id" element={<ProtectAdmin><DashboardLayout><UpdateService /></DashboardLayout></ProtectAdmin>} />
+      
+       <Route path="/CustomerDisplay" element={<ProtectAdmin><DashboardLayout><CustomerDisplay/></DashboardLayout></ProtectAdmin>} />
+       <Route path="/AdminDisplay" element={<ProtectAdmin><DashboardLayout><AdminDisplay/></DashboardLayout></ProtectAdmin>} />
        
-      {/* <Route path="/Profile"element={<MainLayout><Profile/></MainLayout>}/> */}
       <Route path="/forgetPassword"element={<MainLayout><ForgetPassword/><FootetrLayout/></MainLayout>}/>
       
 
-      <Route path="/UpdateService/:id" element={<DashboardLayout><UpdatePrice/></DashboardLayout>} />
-      <Route path="/dash" element={<DashboardLayout><Dashboard/> </DashboardLayout>} />
-
-
-
-
-       
-
-
-
-       {/* <Route path="/sssss" element={<ProtectAdmin/>} />
-       <Route path="/sssss" element={<ProtectCustomer/>} /> */}
+      <Route path="/UpdateService/:id" element={<ProtectAdmin><DashboardLayout><UpdatePrice/></DashboardLayout></ProtectAdmin>} />
+      <Route path="/dashbord" element={<ProtectAdmin><DashboardLayout>
+        <Dash/></DashboardLayout></ProtectAdmin>} />
 
       
 
@@ -146,7 +109,6 @@ function App(){
 
     </Routes>
 
-    {/* <CustomerOrder/> */}
     
     
 

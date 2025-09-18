@@ -11,7 +11,7 @@ function Dashboard() {
         Dashboard
       </h2>
       <ul className="flex flex-col gap-4">
-        <Link to="/vvv">
+        <Link to="/dash">
           <li className="flex items-center gap-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition duration-300 shadow-md">
             <i className="fa-solid fa-gauge text-xl"></i>
             <span className="text-lg font-medium">Dashboard</span>
